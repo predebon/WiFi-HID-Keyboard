@@ -1,0 +1,27 @@
+For this project, you want to run the esp in transparent mode, the most common way to do it is by using the original AT command firmware.
+
+Using a ESP01 and a serial to usb adapter, configure it to run as an access point and operate at transparent mode (converting the data to the given socket to serial).
+
+There is a lot of better tutorials online for this purpose, I just went with the quickest solution possible... Please take everything I say with a grain of salt, this commands worked for me, but may not work for you.
+
+Commands used:
+
+AT
+should respond OK, if it respond ERROR, try sudo AT
+... 
+no, just kidding, THAT IS NOT HOW IT WORKS
+... 
+but really, if it responds ERROR to the AT command, try updating the firmware. If it doesn't respond at all, send the command below:
+
++++
+if it's already in transparent mode, it should return to config mode. Else, check connections and usb to serial adapter software (I'm using HTerm for Windows) configurations.
+
+AT+CWMODE_DEF=2
+AT+CWSAP=""predebon,"",5,0
+access point with ssid=predebon and no password
+
+AT+CIPSTA_DEF="192.168.6.100","192.168.6.1","255.255.255.0"
+fix IP, now login on the access point with your WiFi device, check your IP
+
+AT+SAVETRANSLINK=1,"192.168.4.2",6666,"TCP"
+my IP was 192.168.4.2, so I created a TCP client on port 6666 for my IP, to send data I'm using TCPClient for Android
