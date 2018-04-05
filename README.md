@@ -7,7 +7,7 @@ First, you will need to gather the components:
 
 Yes, that simple.
 
-In Cube, select the standard mouse HID from STM (RCC and USB configurations), add an USART (SPI if you are using NRF24L01) and your circuitary too if needed.
+In Cube, select the standard mouse HID from STM (RCC and USB configurations), add an USART (SPI if you are using NRF24L01) and your circuitry too if needed.
 
 If you don't want to spend a significant time configuring the HID descriptors, just replace yours usbd_hid.c and .h from Middlewares\ST\STM32_USB_Device_Library\Class\HID folder for mine.
 
